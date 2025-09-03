@@ -1,0 +1,15 @@
+apiVersion: automation.cloudbees.io/v1alpha1
+kind: workflow
+
+name: Simple Error Test
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test-missing-secret:
+    runs-on: cloudbees-runners
+    steps:
+      - name: Use missing secret
+        run: |
+          echo "Secret value: ${{ secrets.MISSING_SECRET }}"
