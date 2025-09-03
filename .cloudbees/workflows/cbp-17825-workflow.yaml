@@ -12,4 +12,4 @@ jobs:
     steps:
       - name: Use missing secret
         run: |
-          echo "Secret value: ${{ secrets.MISSING_SECRET }}"
+          echo "Secret value: ${{ secrets.MISSING_SECRET_NEW }}"
