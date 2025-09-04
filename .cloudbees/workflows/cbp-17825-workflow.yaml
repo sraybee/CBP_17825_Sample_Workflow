@@ -14,6 +14,8 @@ on:
 jobs:
   test-input-validation:
     steps:
-      - name: Use required input
-        run: |
-          echo "Required input: ${{ inputs.required_input }}"
+      - name: Use action with missing secret
+        uses: some-action@v1
+        with:
+          secret: ${{ secrets.MISSING_SECRET }}
+          input_value: ${{ inputs.required_input }}
