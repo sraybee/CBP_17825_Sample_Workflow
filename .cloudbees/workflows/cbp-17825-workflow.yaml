@@ -15,7 +15,7 @@ jobs:
   test-input-validation:
     steps:
       - name: Use action with missing secret
-        uses: some-action@v1
+        uses: cloudbees-io/checkout@v1
         with:
           secret: ${{ secrets.MISSING_SECRET }}
           input_value: ${{ inputs.required_input }}
