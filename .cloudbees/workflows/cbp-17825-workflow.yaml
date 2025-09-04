@@ -1,14 +1,19 @@
 apiVersion: automation.cloudbees.io/v1alpha1
 kind: workflow
 
-name: Simple Error Test
+name: Input Validation Error Test
 
 on:
   workflow_dispatch:
+    inputs:
+      required_input:
+        description: 'A required input'
+        required: true
+        type: string
 
 jobs:
-  test-missing-secret:
+  test-input-validation:
     steps:
-      - name: Use missing secret
+      - name: Use required input
         run: |
-          echo "Secret value: ${{ secrets.MISSING_SECRET_NEW }}"
+          echo "Required input: ${{ inputs.required_input }}"
